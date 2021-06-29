@@ -7,7 +7,13 @@ const store = require('./store')
 const app = express()
 const bodyParser = require('body-parser')
 store.init()
+var port = process.env.PORT || 7777
 app.use(bodyParser.json())
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+)
 function setResponseHeaders(res, filename) {
   res.header('Content-disposition', 'inline; filename=data.pdf');
   res.header('Content-type', 'application/pdf');
@@ -40,7 +46,7 @@ app.post('/item/', async (req, res) => {
 
  
 })
-app.listen(8080, function () {
+app.listen(port, function () {
   console.log('Example app listening on port 8080!')
 })
 // testcall()
