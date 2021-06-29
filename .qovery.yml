@@ -1,0 +1,11 @@
+---
+application:
+  name: "nodeapi"
+  project: "SEC"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-nodeapi"
+  routes:
+  - application_name: "nodeapi"
+    paths:
+    - "/*"
